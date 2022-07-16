@@ -1,0 +1,15 @@
+
+Bot DMs user's that get access to the next race with the lobby name & password if applicable
+Bot DMs queue's admins/hosts with the set names & passwords if applicable
+Add ability for admins to use the user's generated ID to identify them in commands.
+Their Id is obtained by ;id @user or ;id discord_id
+Join q's by typing ;q queuename
+
+---F1 Stuff---
+Add a championship series where anyone can enter at any point. Each track is run for 3 days each. Whoever has the most champ points at the end is the winner and roles will be given to 2nd and 3rd place as well
+
+---Gran Turismo 7 Stuff---
+iRacing Style Racing Series (Unique names with a set schedule for each Track with 1-5 cars per series)
+Number of penalties determines SR loss
+Qualifying vs Finish pos determins DR gain / loss
+
