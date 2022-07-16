@@ -1,4 +1,3 @@
-from turtle import pos
 import globals as g
 import nextcord
 from nextcord.ext import commands
@@ -34,7 +33,16 @@ async def register(ctx, name: str):
 
 @bot.command(name="q")
 async def q(ctx):
-    #await mining.Mine(ctx, oreId)
+    
+    pass
+
+@bot.command(name="r")
+async def r(ctx, id):
+    #Queues/Registers for the next race of the series ID specified
+    pass
+
+@bot.command(name="help")
+async def help(ctx):
     pass
 
 @bot.command(name="result")

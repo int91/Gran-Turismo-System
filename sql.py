@@ -114,156 +114,6 @@ def UserExists(discordId: str) -> bool:
     return not GetUserData(discordId) == []
 
 """
-AddSprintWin - Adds 1 to sprintStats wins
-"""
-def AddSprintWin(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT wins FROM sprintStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE sprintStats SET wins=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-    AddSprintPodium(userName)
-
-"""
-AddSprintPodium - Adds 1 to sprintStats podiums
-"""
-def AddSprintPodium(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT podiums FROM sprintStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE sprintStats SET podiums=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddSprintPole - Adds 1 to sprintStats poles
-"""
-def AddSprintPole(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT poles FROM sprintStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE sprintStats SET poles=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddSprintTotal - Adds 1 to sprintStats total
-"""
-def AddSprintTotal(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT races FROM sprintStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE sprintStats SET races=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddNormalWin - Adds 1 to normalStats wins
-"""
-def AddNormalWin(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT wins FROM normalStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE normalStats SET wins=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-    AddNormalPodium(userName)
-
-"""
-AddNormalPodium - Adds 1 to normalStats podiums
-"""
-def AddNormalPodium(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT podiums FROM normalStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE normalStats SET podiums=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddNormalPole - Adds 1 to normalStats poles
-"""
-def AddNormalPole(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT poles FROM normalStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE normalStats SET poles=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddNormalTotal - Adds 1 to normalStats total
-"""
-def AddNormalTotal(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT races FROM normalStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE normalStats SET races=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddEnduranceWin - Adds 1 to enduranceStats wins
-"""
-def AddEnduranceWin(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT wins FROM enduranceStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE enduranceStats SET wins=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-    AddNormalPodium(userName)
-
-"""
-AddEndurancePodium - Adds 1 to enduranceStats podiums
-"""
-def AddEndurancePodium(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT podiums FROM enduranceStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE enduranceStats SET podiums=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddEndurancePole - Adds 1 to enduranceStats poles
-"""
-def AddEndurancePole(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT poles FROM enduranceStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE enduranceStats SET poles=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddEnduranceTotal - Adds 1 to enduranceStats total
-"""
-def AddEnduranceTotal(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT races FROM enduranceStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE enduranceStats SET races=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddSemiSprintWin - Adds 1 to semiSprintStats wins
-"""
-def AddSemiSprintWin(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT wins FROM semiSprintStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE semiSprintStats SET wins=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-    AddNormalPodium(userName)
-
-"""
-AddSemiSprintPodium - Adds 1 to semiSprintStats podiums
-"""
-def AddSemiSprintPodium(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT podiums FROM semiSprintStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE semiSprintStats SET podiums=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddSemiSprintPole - Adds 1 to semiSprintStats poles
-"""
-def AddSemiSprintPole(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT poles FROM semiSprintStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE semiSprintStats SET poles=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-"""
-AddSemiSprintTotal - Adds 1 to semiSprintStats total
-"""
-def AddSemiSprintTotal(userName: str) -> bool:
-    value = globals()["cur"].execute('''SELECT races FROM semiSprintStats WHERE userName=?''', (userName, )).fetchall()
-    value = value[0][0]+1
-    globals()["cur"].execute('''UPDATE semiSprintStats SET races=? WHERE userName=?''', (value, userName, ))
-    globals()["con"].commit()
-
-
-
-"""
 GetRaceType - Returns the type of a race by its id
 """
 def GetRaceType(id: int) -> str:
@@ -287,52 +137,41 @@ def GetUserData(discordId: str) -> list:
 InitializeDatabase - Creates the SQL Database for things
 """
 def InitializeDatabase() -> None:
+    #Race Types Are As Follows: ROAD = 1, OVAL = 2, DIRT = 3
+    #Series Is Determined By ID's
+    #Official Values Are As Follows: UNOFFICIAL = 1, OFFICIAL = 2
+    globals()["cur"].execute('''CREATE TABLE series (
+        id INTEGER AUTO_INCREMENT,
+        name TEXT NOT NULL,
+        description TEXT NOT NULL,
+        nextRaceTime TEXT NOT NULL,
+        lastRaceTime TEXT NOT NULL,
+        PRIMARY KEY (id)
+        )''')
     globals()["cur"].execute('''CREATE TABLE races (
         id INTEGER PRIMARY KEY AUTO_INCREMENT,
-        type TEXT NOT NULL
+        type INTEGER NOT NULL,
+        split INTEGER NOT NULL,
+        official INTEGER NOT NULL,
+        seriesId INTEGER REFERENCES series(id) NOT NULL
         );''')
     globals()["cur"].execute('''CREATE TABLE raceResults(
         id INTEGER PRIMARY KEY AUTO_INCREMENT,
-        raceId INTEGER NOT NULL,
-        discordId TEXT NOT NULL,
-        qualify INTEGER NOT NULL,
-        position INTEGER NOT NULL
+        qualifyingPosition INTEGER NOT NULL,
+        finishPosition INTEGER NOT NULL,
+        userId INTEGER REFERENCES users(id) NOT NULL,
+        raceId INTEGER REFERENCES races(id) NOT NULL
         );''')
+    globals()["cur"].execute('''CREATE TABLE ratings (
+        id INTEGER AUTO_INCREMENT,
+        roadRating REAL NOT NULL,
+        ovalRating REAL NOT NULL,
+        dirtRating REAL NOT NULL,
+        PRIMARY KEY (id)
+        )''')
     globals()["cur"].execute('''CREATE TABLE users (
         id INTEGER PRIMARY KEY,
         discordId TEXT NOT NULL UNIQUE,
         name TEXT NOT NULL UNIQUE,
-        mmr INTEGER NOT NULL
-    )''')
-    globals()["cur"].execute('''CREATE TABLE sprintStats (
-        userName TEXT NOT NULL UNIQUE,
-        wins INTEGER NOT NULL,
-        races INTEGER NOT NULL,
-        podiums INTEGER NOT NULL,
-        poles INTEGER NOT NULL,
-        PRIMARY KEY (userName)
-    )''')
-    globals()["cur"].execute('''CREATE TABLE enduranceStats (
-        userName TEXT NOT NULL UNIQUE,
-        wins INTEGER NOT NULL,
-        races INTEGER NOT NULL,
-        podiums INTEGER NOT NULL,
-        poles INTEGER NOT NULL,
-        PRIMARY KEY (userName)
-    )''')
-    globals()["cur"].execute('''CREATE TABLE normalStats (
-        userName TEXT NOT NULL UNIQUE,
-        wins INTEGER NOT NULL,
-        races INTEGER NOT NULL,
-        podiums INTEGER NOT NULL,
-        poles INTEGER NOT NULL,
-        PRIMARY KEY (userName)
-    )''')
-    globals()["cur"].execute('''CREATE TABLE semiSprintStats (
-        userName TEXT NOT NULL UNIQUE,
-        wins INTEGER NOT NULL,
-        races INTEGER NOT NULL,
-        podiums INTEGER NOT NULL,
-        poles INTEGER NOT NULL,
-        PRIMARY KEY (userName)
+        ratingId UBTEGER REFERENCES ratings(id)
     )''')
